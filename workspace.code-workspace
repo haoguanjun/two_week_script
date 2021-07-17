@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "day15_manual"
+		},
+		{
+			"path": "day03_split_word_unittest"
 		}
 	],
 	"settings": {}

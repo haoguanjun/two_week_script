@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "day03_split_word_unittest"
+		},
+		{
+			"path": "day04_node"
 		}
 	],
 	"settings": {}

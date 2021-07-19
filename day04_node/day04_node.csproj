@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="../day03_split_word/token.cs"  Link="token.cs" />
+        <Compile Include="../day03_split_word/EolToken.cs"  Link="EolToken.cs" />
+    </ItemGroup>
+</Project>

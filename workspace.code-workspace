@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "day04_node"
+		},
+		{
+			"path": "day06_parser"
 		}
 	],
 	"settings": {}

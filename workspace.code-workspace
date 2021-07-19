@@ -13,7 +13,10 @@
 			"path": "day04_node"
 		},
 		{
-			"path": "day06_parser"
+			"path": "day06_interpreter"
+		},
+		{
+			"path": "day05_parser"
 		}
 	],
 	"settings": {}

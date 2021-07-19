@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "day05_parser"
+		},
+		{
+			"path": "day17_parser"
 		}
 	],
 	"settings": {}

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+/*
+ * 表示 or 结构
+ */
+namespace week2.element
 {
-    internal static class OrTree : Element
+    public class OrTree : Element
     {
         protected Parser[] _parsers;
 

@@ -7,12 +7,13 @@ using System.Text.RegularExpressions;
 /*
  * https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expressions
  */
-public class Laxer
+public class Lexer
 {
     /* 正则表达式，用于匹配单词，然后分割单词
      * 
      * \\s*                                 0 到多个空白
-     * ((//.*)|([0-9]+))                    注释，或者一组数字
+     * ((//.*)                              注释
+     * ([0-9]+))                            一组数字
      * \\\\\"                               \"
      * \\\\\\\\                             \\
      * \\\\\n                               \n
@@ -30,25 +31,26 @@ public class Laxer
         = "\\s*((//.*)|([0-9]+)|(\"(\\\\\"|\\\\\\\\|\\\\\n|[^\"])*\")"
           + "|([A-Z_a-z][A-Z_a-z0-9]*)|==|<=|>=|&&|\\|\\||[\\p{S}\\p{P}])?";
 
-    //将给定的正则表达式编译并赋予给Pattern类，Pattern是java.util.regex自带的
+    // 使用 Regex 表示正则表达式
     private Regex pattern = new Regex(regexPat);
 
-    //存储 语言对象（字符串、整形、标识符）
+    // 每次解析一行代码，解析之后的结果缓存到此集合中
+    // 缓存从一行代码中解析出的标识集合（字符串、整形、标识符）
     private IList<Token> queue = new List<Token>();
 
-    //是否有下一个
+    // 是否有下一个标识
     private bool hasMore;
 
-    //LineNumberReader是 StringReader 的子类，用来按行读取文本文件。
+    // 自定义的支持行号的文本读取器
     private LineNumberReader reader;
 
-    public Laxer(LineNumberReader r)
+    public Lexer(LineNumberReader r)
     {
         hasMore = true;
         reader = r;
     }
 
-    //读，用于构建语法树
+    // 读取下一个标记
     public Token Read()
     {
         if (fillQueue(0))
@@ -62,6 +64,8 @@ public class Laxer
             return Token.EOF;
         }
     }
+
+    // 预读下一个标记
     public Token Peek(int i)
     {
         if (fillQueue(i))
@@ -70,22 +74,20 @@ public class Laxer
             return Token.EOF;
     }
 
-    // 填充 语言对象的队列
+    // 填充 Token 队列
     // 判断索引是否超过队列长度，如果超过，判断是否有后续可读，如果有，则读取
     private bool fillQueue(int i)
     {
         while (i >= queue.Count)
             if (hasMore)
-                readLine();
+                ReadLine();
             else
                 return false;
         return true;
     }
 
-    //readLine 与 addToken 是词法分析的核心部分，其他都只是起辅助作用，
-
-    //从每一行中读取单词的方法
-    protected void readLine()
+    // 解析一行代码，解析结果缓存
+    protected void ReadLine()
     {
         string line;
         try
@@ -102,10 +104,10 @@ public class Laxer
             hasMore = false;
             return;
         }
-        //获取行列数
+        // 获取当前行号
         int lineNo = reader.GetLineNumber();
 
-        //使用该 Matcher实例以编译的正则表达式为基础对目标字符串进行匹配工作，多个Matcher是可以共用一个Pattern对象的
+        // 使用正则表达式进行模式匹配
         MatchCollection matches = pattern.Matches(line);
 
         foreach (Match item in matches)
@@ -117,16 +119,20 @@ public class Laxer
 
             TokenType type = TokenType.ID;
             string tokenValue = null;
+
+            // 数值匹配组
             if (item.Groups[3].Success)
             {
                 type = TokenType.Number;
                 tokenValue = item.Groups[3].Value;
             }
+            // 字符串匹配组
             else if (item.Groups[4].Success)
             {
                 type = TokenType.String;
                 tokenValue = item.Groups[4].Value;
             }
+            // 标识符匹配组
             else if( item.Groups[6].Success){
                 type = TokenType.ID;
                 tokenValue = item.Groups[6].Value;
@@ -139,6 +145,7 @@ public class Laxer
             AddToken(lineNo, type, tokenValue);
 
         }
+        // 每行的最后是行结束标记
         queue.Add(new IdToken(lineNo, Token.EOL));
     }
 

@@ -1,7 +1,13 @@
 using System;
 using System.Collections.Generic;
+using week2;
+using week2.element;
+using week2.element.token;
 
-namespace Parser
+/*
+ * 表示重复结构，在本例中，即 while 循环结构
+ */
+namespace week2
 {
     public class Repeat: Element
     {

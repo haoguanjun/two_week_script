@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+namespace week2.factory
 {
-    internal class FactoryC: Factory
+    public class FactoryC: Factory
     {
         private Type _type;
         public FactoryC(Type type)

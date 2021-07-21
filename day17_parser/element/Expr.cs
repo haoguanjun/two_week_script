@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+namespace week2.element
 {
-    internal static class Expr: Element
+    public class Expr: Element
     {
         protected Factory _factory;
         protected Operators _ops;

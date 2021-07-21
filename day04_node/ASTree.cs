@@ -2,6 +2,11 @@ using System.Collections.Generic;
 
 namespace week2
 {
+    /*
+     * 抽象语法树节点抽象基类
+     * 表示抽象语法树中的一个节点
+     * 抽象语法树可能由任意多个节点聚合形成，因此可以遍历整个语法树
+     */
     public abstract class ASTree : IEnumerable<ASTree>
     {
         public abstract ASTree Child(int index);

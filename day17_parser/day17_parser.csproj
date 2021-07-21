@@ -5,4 +5,15 @@
     <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+    <ItemGroup>
+        <Compile Include="../day03_split_word/token.cs"  Link="token.cs" />
+        <Compile Include="../day03_split_word/EolToken.cs"  Link="EolToken.cs" />
+        <Compile Include="../day03_split_word/Lexer.cs"  Link="Lexer.cs" />
+        <Compile Include="../day03_split_word/LineNumberReader.cs"  Link="LineNumberReader.cs" />
+        <Compile Include="../day03_split_word/TokenType.cs"  Link="TokenType.cs" />
+
+        <Compile Include="../day04_node/ASTree.cs"  Link="ASTree.cs" />
+        <Compile Include="../day04_node/ASTLeaf.cs"  Link="ASTLeaf.cs" />
+        <Compile Include="../day04_node/ASTList.cs"  Link="ASTList.cs" />
+    </ItemGroup>
 </Project>

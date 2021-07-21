@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+namespace week2.factory
 {
     public abstract class Factory
     {
@@ -43,6 +43,7 @@ namespace Parser
                 return null;
 
             try{
+                // 获取指定类型的 create 方法定义
                 System.Reflection.MethodInfo method
                     =  type.GetMethod( factoryName, new Type[]{ argType });
                 var factory = new FactoryB( method);
@@ -61,5 +62,7 @@ namespace Parser
                 throw new RuntimeException(exception);
             }
         }
+
+        
     }
 }

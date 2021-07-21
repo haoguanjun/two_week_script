@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+namespace week2.factory
 {
     internal class FactoryB: Factory
     {

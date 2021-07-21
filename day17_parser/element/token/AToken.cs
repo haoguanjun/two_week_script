@@ -1,12 +1,17 @@
 using System;
 using System.Collections.Generic;
-
-namespace Parser
+using week2;
+using week2.element;
+using week2.factory;
+/*
+ * 处理基本的 3 种 Token
+ */
+namespace week2.element.token
 {
-    internal static class AToken: Element
+    public class AToken: Element
     {
         protected Factory _factory;
-        protected AToken(Type type)
+        public AToken(Type type)
         {
             if( type == null)
             {
@@ -19,6 +24,8 @@ namespace Parser
         protected void Parse(Lexer lexer, IList<ASTree> res)
         {
             Token t = lexer.Read();
+
+            // 调用实现类的 Test 方法
             if( Test(t))
             {
                 ASTree leaf = _factory.Make(t);

@@ -5,6 +5,10 @@ using System.Text;
 
 namespace week2
 {
+    /*
+     * 表示抽象语法树中的非叶节点
+     * 非叶节点可能由 n 个子节点
+     */
     public class ASTList : ASTree
     {
         protected IList<ASTree> _children;

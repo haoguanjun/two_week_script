@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using week2.factory;
+using week2.element;
+using week2.element.token;
 
-namespace Parser
+namespace week2
 {
     public class Parser
     {
@@ -9,6 +12,7 @@ namespace Parser
         protected IList<Element> _elements;
         protected Factory  _factory;
 
+        // 返回解析特定类型的解析器
         public Parser( Type type)
         {
             Reset(type);
@@ -69,6 +73,7 @@ namespace Parser
 
         public Parser Number()
         {
+            // null 默认为生成 leaf 节点
             return Number(null);
         }
 
@@ -80,6 +85,7 @@ namespace Parser
 
         public Parser Identifier(HashSet<String> reserved)
         {
+            // null 默认生成 leaf 节点
             return Identifier(null, reserved);
         }
 
@@ -91,6 +97,7 @@ namespace Parser
 
         public Parser String()
         {
+            // null 默认生成 leaf 节点
             return String(null);
         }
 
@@ -172,7 +179,5 @@ namespace Parser
 
             return this;
         }
-
-         
     }
 }

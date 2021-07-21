@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+namespace week2
 {
-    internal static class Precedence
+    public class Precedence
     {
         int _value;
         bool _leftAssoc;             // left aaociative

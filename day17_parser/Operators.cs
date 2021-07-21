@@ -1,9 +1,15 @@
 using System;
 using System.Collections.Generic;
 
-namespace Parser
+/*
+ * 操作符
+ * 包括优先级别，左右结合定义
+ * 例如：+ - * / % = == < > 
+ *
+ */
+namespace week2
 {
-    public class Operators: HashSet<string, Precedence>
+    public class Operators: HashMap<string, Precedence>
     {
         public static bool LEFT = true;
         public static bool RIGHT = false;

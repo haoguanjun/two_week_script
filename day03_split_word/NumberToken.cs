@@ -1,18 +1,20 @@
 using System;
 
-//NumToken、IdToken 与 StrToken 类是 Token 类的子类。它们分别对应不同类型的单词。
 
+/*
+ * 数值类型的标记
+ */
 public class NumToken : Token
 {
-    private int value;
+    private int _value;
 
-    public NumToken(int line, int v) : base(line)
+    public NumToken(int line, int value) : base(line)
     {
 
-        value = v;
+        _value = value;
     }
     public override bool IsNumber { get { return true; } }
 
-    public override string Text { get { return value.ToString(); } }
-    public override int Number { get { return value; } }
+    public override string Text { get { return _value.ToString(); } }
+    public override int Number { get { return _value; } }
 }

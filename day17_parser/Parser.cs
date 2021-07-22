@@ -35,7 +35,7 @@ namespace week2
             return _factory.Make(results);
         }
 
-        protected bool Match(Lexer lexer)
+        public bool Match(Lexer lexer)
         {
             if( _elements.Count == 0)
             {
@@ -48,6 +48,7 @@ namespace week2
             }
         }
 
+        // 构建一个空白的解析器
         public static Parser Rule()
         {
             return Rule(null);
@@ -58,12 +59,14 @@ namespace week2
             return new Parser(type);
         }
 
+        // 当使用 Rule() 来构建空白规则时
         public Parser Reset()
         {
              _elements = new List<Element>();
              return this;
         }
 
+        // 当提供 Type 来构建规则时
         public Parser Reset(Type type)
         {
             _elements = new List<Element>();
@@ -71,6 +74,7 @@ namespace week2
             return this;
         }
 
+        // 增加 Number 类型处理
         public Parser Number()
         {
             // null 默认为生成 leaf 节点
@@ -79,10 +83,11 @@ namespace week2
 
         public Parser Number(Type type)
         {
-            _elements.Add( new NumToken(type));
+            _elements.Add( new week2.element.token.NumToken(type));
             return this;
         }
 
+        // 增加 Id 处理
         public Parser Identifier(HashSet<String> reserved)
         {
             // null 默认生成 leaf 节点
@@ -91,10 +96,11 @@ namespace week2
 
         public Parser Identifier(Type type, HashSet<String> reserved)
         {
-            _elements.Add( IdToken(type, reserved));
+            _elements.Add( new week2.element.token.IdToken(type, reserved));
             return this;
         }
 
+        // 增加 String 类型处理，处理结果为 ASTLeaf
         public Parser String()
         {
             // null 默认生成 leaf 节点
@@ -107,13 +113,14 @@ namespace week2
             return this;
         }
 
-        public Parser Token(String pattern)
+        // 增加普通标记处理，处理结果为 叶
+        public Parser Token(params string[] pattern )
         {
             _elements.Add(new Leaf( pattern));
             return this;
         }
 
-        public Parser Sep(String pattern)
+        public Parser Sep(params String[] pattern)
         {
             _elements.Add(new Skip(pattern));
             return this;
@@ -125,7 +132,7 @@ namespace week2
             return this;
         }
 
-        public Parser Or(Parser p)
+        public Parser Or(params Parser[] p)
         {
             _elements.Add(new OrTree(p));
             return this;

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using week2;
 
 //第一个测试用例：分割单词的测试
 public class LexerRunner {

@@ -4,8 +4,8 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
     </PropertyGroup>
+    
     <ItemGroup>
-        <Compile Include="../day03_split_word/token.cs"  Link="token.cs" />
-        <Compile Include="../day03_split_word/EolToken.cs"  Link="EolToken.cs" />
+        <ProjectReference Include="..\day03_split_word\day03_split_word.csproj" />
     </ItemGroup>
 </Project>

@@ -1,10 +1,14 @@
 using System;
-public class EolToken : Token
+
+namespace week2
 {
-    private String text;
-    public EolToken() : base(-1)
+    public class EolToken : Token
     {
+        private String text;
+        public EolToken() : base(-1)
+        {
+        }
+        public override bool IsIdentifier { get { return true; } }
+        public override string Text { get { return "EOF"; } }
     }
-    public new bool isIdentifier() { return true; }
-    public override string Text { get { return "EOF"; } }
 }

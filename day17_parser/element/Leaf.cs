@@ -11,14 +11,14 @@ namespace week2.element
             _tokens = pat;
         }
 
-        public void Parse(Lexer lexer, IList<ASTree> res )
+        public override void Parse(Lexer lexer, IList<ASTree> res )
         {
             Token token = lexer.Read();
-            if( token.IsIdentifier())
+            if( token.IsIdentifier)
             {
-                foreach(string tokens in _tokens)
+                foreach(string tokenText in _tokens)
                 {
-                    if( token.equals( token.Text ))
+                    if( tokenText.Equals( token.Text ))
                     {
                         Finded(res, token);
                         return;
@@ -38,13 +38,13 @@ namespace week2.element
 
         public void Finded(IList<ASTree> res, Token token)
         {
-            res.Add( new ASTree( token ));
+            res.Add( new ASTLeaf( token ));
         }
 
-        public bool Match(Lexer lexer)
+        public override bool Match(Lexer lexer)
         {
-            Token token = lexer.Peek();
-            if( token.IsIdentifier())
+            Token token = lexer.Peek(0);
+            if( token.IsIdentifier)
             {
                 foreach( string tokenName in _tokens)
                 {

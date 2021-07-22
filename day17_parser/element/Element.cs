@@ -11,7 +11,7 @@ namespace week2.element
      */
     public abstract class Element
     {
-        protected abstract void Parse(Lexer lexer, IList<ASTree> res);
-        protected abstract bool Match(Lexer lexer);
+        public abstract void Parse(Lexer lexer, IList<ASTree> res);
+        public abstract bool Match(Lexer lexer);
     }
 }

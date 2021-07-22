@@ -1,6 +1,6 @@
 using System;
 
-namespace Parser
+namespace week2
 {
     public class RuntimeException: Exception
     {

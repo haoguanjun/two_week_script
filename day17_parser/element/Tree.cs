@@ -8,17 +8,17 @@ namespace week2.element
         protected Parser _parser;
         public Tree(Parser parser)
         {
-            _parser = parser1;
+            _parser = parser;
         } 
 
-        public void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(Lexer lexer, IList<ASTree> res)
         {
-            res.Add( Parser.Parse(lexer) );
+            res.Add( _parser.Parse(lexer) );
         }
 
-        public bool Match(Lexer lexer)
+        public override bool Match(Lexer lexer)
         {
-            return Parser.match(lexer);
+            return _parser.Match(lexer);
         }
     }
 }

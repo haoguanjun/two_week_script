@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "day17_parser"
+		},
+		{
+			"path": "day17_parser_unittest"
 		}
 	],
 	"settings": {}

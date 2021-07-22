@@ -1,18 +1,22 @@
 using System;
 using System.Collections.Generic;
 
+/*
+ * 通过方法对象来抽象语法树节点
+ */
 namespace week2.factory
 {
-    internal class FactoryB: Factory
+    public class FactoryB: Factory
     {
         private System.Reflection.MethodInfo _method = null;
         public FactoryB( System.Reflection.MethodInfo method)
         {
             _method = method;
         }
-        protected ASTree Make0(Object arg)
+        public override ASTree Make0(Object arg)
         {
-            ASTree result = _method.Invoke(null, arg) as ASTree;
+            object[] args = new object[] { arg };
+            ASTree result = _method.Invoke(null, args) as ASTree;
             return result;
         }
     }

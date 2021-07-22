@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using week2;
+using week2.factory;
 
 namespace week2.element
 {
@@ -9,20 +11,20 @@ namespace week2.element
         protected Operators _ops;
         protected Parser  _factor;
 
-        protected Expr(Type type, Parser exp, Operators map)
+        public Expr(Type type, Parser exp, Operators map)
         {
             _factory = Factory.GetForASTList( type );
             _ops = map;
             _factor = exp;
         }
 
-        public void Parse( Lexer lexer, IList<ASTree> res)
+        public override void Parse( Lexer lexer, IList<ASTree> res)
         {
-            ASTree right = _factory.Parse(lexer);
+            ASTree right = _factor.Parse(lexer);
             Precedence precedence;
-            while( (precedence = nextOperator(lexer)) != null )
+            while( (precedence = NextOperator(lexer)) != null )
             {
-                right = DoShift( lexer, right, precedence);
+                right = DoShift( lexer, right, precedence.Value);
             }
 
             res.Add( right);
@@ -33,10 +35,10 @@ namespace week2.element
             List<ASTree> list = new List<ASTree>();
             list.Add(left);
             list.Add( new ASTLeaf(lexer.Read() ));
-            ASTree right = _factory.Parse( lexer);
+            ASTree right = _factor.Parse( lexer);
 
             Precedence next;
-            while( (next = nextOperator(lexer)) != null
+            while( (next = NextOperator(lexer)) != null
                 && RightIsExpr( prec, next) )
             {
                 right = DoShift( lexer, right, next.Value);
@@ -49,7 +51,7 @@ namespace week2.element
         private Precedence NextOperator(Lexer lexer)
         {
             Token token = lexer.Peek(0);
-            if( token.IsIdentifier())
+            if( token.IsIdentifier)
             {
                 return _ops.Get(token.Text);
             }
@@ -71,9 +73,9 @@ namespace week2.element
             }
         }
 
-        protected bool Match(Lexer lexer)
+        public override bool Match(Lexer lexer)
         {
-            return _factory.Match( lexer);
+            return _factor.Match( lexer);
         }
     }
 }

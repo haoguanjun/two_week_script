@@ -1,11 +1,16 @@
 using System;
 using System.Collections.Generic;
 
+/*
+ * 接收一个列表类型参数
+ *     如果列表中只有一个对象，直接返回该对象
+ *     否则将列表重新包装为一个 ASTList 对象
+ */
 namespace week2.factory
 {
-    internal class FactoryA: Factory
+    public class FactoryA: Factory
     {
-        protected ASTree Make0(Object arg)
+        public override ASTree Make0(Object arg)
         {
             IList<ASTree> results = arg as IList<ASTree>;
             if(results.Count == 1)

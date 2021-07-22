@@ -19,12 +19,12 @@ namespace week2
             _onlyOne = once;
         }
 
-        public void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(Lexer lexer, IList<ASTree> res)
         {
             while(_parser.Match(lexer))
             {
                 ASTree t = _parser.Parse(lexer);
-                if( !(t is ASTList) || t.numChildren > 0 )
+                if( !(t is ASTList) || t.Count > 0 )
                 {
                     res.Add( t );
                 }
@@ -36,7 +36,7 @@ namespace week2
             }
         }
 
-        public bool Match(Lexer lexer)
+        public override bool Match(Lexer lexer)
         {
             return _parser.Match(lexer);
         }

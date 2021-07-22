@@ -8,7 +8,7 @@ namespace week2.element.token
         public  NumToken(Type type) : base(type) { }
         public  bool Test(Token token)
         {
-            return token.IsNumber();
+            return token.IsNumber;
         }
     }
 }

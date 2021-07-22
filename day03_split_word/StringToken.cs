@@ -3,13 +3,16 @@ using System;
 /*
  * 字符串类型的标记
  */
-public class StrToken : Token
+namespace week2
 {
-    private String _literal;
-    public StrToken(int line, String value) : base(line)
+    public class StrToken : Token
     {
-        _literal = value;
+        private String _literal;
+        public StrToken(int line, String value) : base(line)
+        {
+            _literal = value;
+        }
+        public override bool IsString { get { return true; } }
+        public override string Text { get { return _literal; } }
     }
-    public override bool IsString { get { return true; } }
-    public override string Text { get { return _literal; } }
 }

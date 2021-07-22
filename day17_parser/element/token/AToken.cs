@@ -4,44 +4,47 @@ using week2;
 using week2.element;
 using week2.factory;
 /*
- * 处理基本的 3 种 Token
+ * 处理基本的 3 种 Token 的规则处理器基类
  */
 namespace week2.element.token
 {
-    public class AToken: Element
+    public class AToken : Element
     {
         protected Factory _factory;
+
+        // 参数为生成的抽象语法树节点类型
+        // null 表示使用 ASTLeaf 节点
         public AToken(Type type)
         {
-            if( type == null)
+            if (type == null)
             {
                 type = typeof(ASTLeaf);
             }
 
-            _factory = Factory.Get( type, Token.GetType() );
+            _factory = Factory.Get(type, typeof(Token));
         }
 
-        protected void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(Lexer lexer, IList<ASTree> res)
         {
             Token t = lexer.Read();
 
             // 调用实现类的 Test 方法
-            if( Test(t))
+            if (Test(t))
             {
                 ASTree leaf = _factory.Make(t);
                 res.Add(leaf);
             }
             else
             {
-                throw new ParseException( t );
+                throw new ParseException(t);
             }
         }
 
-        protected bool Match(Lexer lexer)
+        public override bool Match(Lexer lexer)
         {
-            Test( lexer.Peek(0) );
+            return Test(lexer.Peek(0));
         }
 
-        protected abstract bool Test(Token token);
+        public virtual bool Test(Token token) { return false; }
     }
 }

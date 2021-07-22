@@ -9,13 +9,18 @@ using System.Collections.Generic;
  */
 namespace week2
 {
-    public class Operators: HashMap<string, Precedence>
+    public class Operators: Dictionary<string, Precedence>
     {
         public static bool LEFT = true;
         public static bool RIGHT = false;
         public void Add(string name, int prec, bool leftAssoc)
         {
             this.Add( name, new Precedence(prec, leftAssoc) );
+        }
+
+        public Precedence Get(string key)
+        {
+            return this.Get(key);
         }
     }
 }

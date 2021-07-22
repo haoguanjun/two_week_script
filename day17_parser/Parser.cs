@@ -24,7 +24,7 @@ namespace week2
             _factory = p._factory;
         }
 
-        public ASTree Parse(Lexer lexer)
+        public ASTree Parse(ILexer lexer)
         {
             IList<ASTree> results = new List<ASTree>();
             foreach( var element in _elements)
@@ -35,7 +35,7 @@ namespace week2
             return _factory.Make(results);
         }
 
-        public bool Match(Lexer lexer)
+        public bool Match(ILexer lexer)
         {
             if( _elements.Count == 0)
             {

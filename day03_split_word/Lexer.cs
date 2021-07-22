@@ -13,7 +13,7 @@ namespace week2
     /*
      * https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expressions
      */
-    public class Lexer
+    public class Lexer: ILexer
     {
         /* 正则表达式，用于匹配单词，然后分割单词
          * 

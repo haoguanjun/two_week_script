@@ -19,7 +19,7 @@ namespace week2
             _onlyOne = once;
         }
 
-        public override void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(ILexer lexer, IList<ASTree> res)
         {
             while(_parser.Match(lexer))
             {
@@ -36,7 +36,7 @@ namespace week2
             }
         }
 
-        public override bool Match(Lexer lexer)
+        public override bool Match(ILexer lexer)
         {
             return _parser.Match(lexer);
         }

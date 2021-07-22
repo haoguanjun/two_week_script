@@ -18,7 +18,7 @@ namespace week2.element
             _factor = exp;
         }
 
-        public override void Parse( Lexer lexer, IList<ASTree> res)
+        public override void Parse( ILexer lexer, IList<ASTree> res)
         {
             ASTree right = _factor.Parse(lexer);
             Precedence precedence;
@@ -30,7 +30,7 @@ namespace week2.element
             res.Add( right);
         }
 
-        private ASTree DoShift(Lexer lexer, ASTree left, int prec)
+        private ASTree DoShift(ILexer lexer, ASTree left, int prec)
         {
             List<ASTree> list = new List<ASTree>();
             list.Add(left);
@@ -48,7 +48,7 @@ namespace week2.element
             return _factory.Make( list);
         }
 
-        private Precedence NextOperator(Lexer lexer)
+        private Precedence NextOperator(ILexer lexer)
         {
             Token token = lexer.Peek(0);
             if( token.IsIdentifier)
@@ -73,7 +73,7 @@ namespace week2.element
             }
         }
 
-        public override bool Match(Lexer lexer)
+        public override bool Match(ILexer lexer)
         {
             return _factor.Match( lexer);
         }

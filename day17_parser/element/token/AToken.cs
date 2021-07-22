@@ -24,7 +24,7 @@ namespace week2.element.token
             _factory = Factory.Get(type, typeof(Token));
         }
 
-        public override void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(ILexer lexer, IList<ASTree> res)
         {
             Token t = lexer.Read();
 
@@ -40,7 +40,7 @@ namespace week2.element.token
             }
         }
 
-        public override bool Match(Lexer lexer)
+        public override bool Match(ILexer lexer)
         {
             return Test(lexer.Peek(0));
         }

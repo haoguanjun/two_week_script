@@ -16,7 +16,7 @@ namespace week2.element
             _parsers = parsers;
         }
 
-        public override void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(ILexer lexer, IList<ASTree> res)
         {
             Parser parser  = Choice(lexer);
             if( parser == null)
@@ -28,12 +28,12 @@ namespace week2.element
             }
         }
 
-        public override bool Match(Lexer lexer)
+        public override bool Match(ILexer lexer)
         {
             return Choice(lexer) != null;
         }
 
-        public Parser Choice(Lexer lexer)
+        public Parser Choice(ILexer lexer)
         {
             foreach(Parser parser in _parsers)
             {

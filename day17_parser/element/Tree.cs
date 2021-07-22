@@ -11,12 +11,12 @@ namespace week2.element
             _parser = parser;
         } 
 
-        public override void Parse(Lexer lexer, IList<ASTree> res)
+        public override void Parse(ILexer lexer, IList<ASTree> res)
         {
             res.Add( _parser.Parse(lexer) );
         }
 
-        public override bool Match(Lexer lexer)
+        public override bool Match(ILexer lexer)
         {
             return _parser.Match(lexer);
         }

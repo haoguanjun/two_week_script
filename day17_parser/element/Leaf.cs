@@ -11,7 +11,7 @@ namespace week2.element
             _tokens = pat;
         }
 
-        public override void Parse(Lexer lexer, IList<ASTree> res )
+        public override void Parse(ILexer lexer, IList<ASTree> res )
         {
             Token token = lexer.Read();
             if( token.IsIdentifier)
@@ -41,7 +41,7 @@ namespace week2.element
             res.Add( new ASTLeaf( token ));
         }
 
-        public override bool Match(Lexer lexer)
+        public override bool Match(ILexer lexer)
         {
             Token token = lexer.Peek(0);
             if( token.IsIdentifier)

@@ -9,7 +9,7 @@ namespace week2
     public class Parser
     {
         public static readonly string factoryName = "create";
-        protected IList<Element> _elements;
+        public IList<Element> _elements;
         protected Factory  _factory;
 
         // 返回解析特定类型的解析器

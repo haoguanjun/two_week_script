@@ -12,5 +12,10 @@ namespace week2
             Value = v;
             LeftAssoc = a;
         }
+
+        public override string ToString()
+        {
+            return $"Precedence: Value->{Value}, Left->{LeftAssoc}";
+        }
     }
 }

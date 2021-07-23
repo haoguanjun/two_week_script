@@ -13,14 +13,18 @@ namespace week2
     {
         public static bool LEFT = true;
         public static bool RIGHT = false;
+
+        private Dictionary<string, Precedence> _map = new Dictionary<string, Precedence>();
         public void Add(string name, int prec, bool leftAssoc)
         {
-            this.Add( name, new Precedence(prec, leftAssoc) );
+            _map.Add( name, new Precedence(prec, leftAssoc) );
         }
 
         public Precedence Get(string key)
         {
-            return this.Get(key);
+            Precedence value = null;
+            _map.TryGetValue( key, out value);
+            return value;
         }
     }
 }

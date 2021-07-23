@@ -26,8 +26,9 @@ namespace day17_parser_unittest
 
         public Token Peek(int index)
         {
-            if( _index >= _tokens.Length ) return null;
-            return _tokens[ _index + 1 ];
+            Console.WriteLine($"Mock Lexer: _index=> {_index}");
+            if( _index >= _tokens.Length ) return  Token.EOF;;
+            return _tokens[ _index ];
         }
     }
 }

@@ -50,6 +50,7 @@ namespace week2.element
 
         private Precedence NextOperator(ILexer lexer)
         {
+            // if doesn;t exist next, will get a EOL token
             Token token = lexer.Peek(0);
             if( token.IsIdentifier)
             {

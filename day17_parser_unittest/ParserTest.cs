@@ -51,5 +51,28 @@ namespace day17_parser_unittest
             Assert.True(target.Count == 3);
             Assert.True(target is week2.ASTList);
         }
+
+        [Fact]
+        public void Parser_Test_num_plus_num_with_rule()
+        {
+            // 希望得到一个 FactoryA 类型的工厂方法
+            // 添加针对数字的解析支持
+            week2.Parser parser = week2.Parser.Rule()
+                .Number()
+                .Identifier(null)
+                .Number();
+            
+            var num1 = new week2.NumToken(1, 999);
+            var plus = new week2.IdToken(1, "+");
+            var num2 = new week2.NumToken(1, 111);
+            var tokens = new week2.Token[3] { num1, plus, num2 };
+            var lexer = new MockLexer(tokens);
+
+            // 解析
+            var target = parser.Parse(lexer);
+
+            Assert.True(target.Count == 3);
+            Assert.True(target is week2.ASTList);
+        }
     }
 }

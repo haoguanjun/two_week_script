@@ -23,6 +23,9 @@
 		},
 		{
 			"path": "day17_parser_unittest"
+		},
+		{
+			"path": "day05_parser_test"
 		}
 	],
 	"settings": {}

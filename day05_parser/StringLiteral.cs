@@ -5,7 +5,7 @@ namespace week2
     {
         public StringLiteral(Token token): base( token ) { }
         public string Value {
-            get { _token.Text; }
+            get { return _token.Text; }
         }
     }
 }

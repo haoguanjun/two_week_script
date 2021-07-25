@@ -1,7 +1,7 @@
 using System;
 using week2;
 
-namespace day17_parser_unittest
+namespace day05_parser_test
 {
     public class MockLexer : week2.ILexer
     {

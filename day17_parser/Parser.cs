@@ -27,6 +27,7 @@ namespace week2
         public ASTree Parse(ILexer lexer)
         {
             IList<ASTree> results = new List<ASTree>();
+
             foreach( var element in _elements)
             {   
                 element.Parse(lexer, results);

@@ -5,7 +5,7 @@ using week2;
 //第一个测试用例：分割单词的测试
 public class LexerRunner {
     public static void Main(String[] args)  {
-        var code = "     sum = 0; \n sum = sun + 1";
+        var code = "while i < 2 { }";
         var stringReader = new StringReader(code);
         var input = new LineNumberReader(stringReader);
 

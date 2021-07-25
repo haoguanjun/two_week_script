@@ -9,9 +9,9 @@ namespace week2
     public abstract class Token
     {
         // 表示行结束的特殊标记
-        public static readonly Token EOF = new EolToken();
+        public static readonly Token EOF = new EoFToken();
         // 表示行结束的字符，Windows 中为 \r\n，Linux 中为 \n
-        public static readonly String EOL = Environment.NewLine;
+        public static readonly String EOL = "End of Line";
         protected Token(int line)
         {
             LineNumber = line;

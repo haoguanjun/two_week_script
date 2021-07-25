@@ -12,7 +12,8 @@ namespace week2
         private String text;
         public IdToken(int line, String id) : base(line)
         {
-            text = id;
+            // trim whitespace
+            text = id.Trim();
         }
         public override bool IsIdentifier { get { return true; } }
         public override string Text { get { return text; } }

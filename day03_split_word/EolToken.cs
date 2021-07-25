@@ -2,10 +2,10 @@ using System;
 
 namespace week2
 {
-    public class EolToken : Token
+    public class EoFToken : Token
     {
         private String text;
-        public EolToken() : base(-1)
+        public EoFToken() : base(-1)
         {
         }
         public override bool IsIdentifier { get { return true; } }

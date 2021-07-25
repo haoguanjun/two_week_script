@@ -7,7 +7,7 @@ public class Program
     {
         System.Text.StringBuilder builder = new System.Text.StringBuilder();
         
-        /*
+        
         builder.AppendLine("even=0");
         builder.AppendLine("odd=0");
         builder.AppendLine("i=1");
@@ -21,9 +21,9 @@ public class Program
         builder.AppendLine("   i = i + 1");
         builder.AppendLine("}");
         builder.AppendLine(" even + odd");
-        */
+        
 
-        builder.AppendLine("while 6 < 20 { } ");
+        // builder.AppendLine("while 6 < 20 { } ");
 
         var stringReader = new StringReader(builder.ToString() );
         var input = new LineNumberReader(stringReader);

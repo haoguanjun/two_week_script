@@ -14,6 +14,15 @@ namespace project_test
         }
 
         [Fact]
+        public void Id_test()
+        {
+            var target = "  x";
+            MatchCollection matches = regex.Matches(target);
+            Assert.True( matches[0].Groups[1].Success);
+            Assert.Equal( "x", matches[0].Groups[1].Value );
+        }
+
+        [Fact]
         public void number_test()
         {
             var target = "100";

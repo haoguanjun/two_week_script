@@ -139,10 +139,10 @@ namespace week2
                     tokenValue = item.Groups[4].Value;
                 }
                 // 标识符匹配组
-                else if (item.Groups[6].Success)
+                else if (item.Groups[1].Success)
                 {
                     type = TokenType.ID;
-                    tokenValue = item.Groups[6].Value;
+                    tokenValue = item.Groups[1].Value;
                 }
                 else
                 {

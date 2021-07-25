@@ -13,7 +13,7 @@ namespace week2
         public IdToken(int line, String id) : base(line)
         {
             // trim whitespace
-            text = id.Trim();
+            text = id;
         }
         public override bool IsIdentifier { get { return true; } }
         public override string Text { get { return text; } }

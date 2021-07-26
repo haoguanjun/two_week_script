@@ -138,16 +138,17 @@ namespace week2
                     type = TokenType.String;
                     tokenValue = item.Groups[4].Value;
                 }
-                // 标识符匹配组
-                else if (item.Groups[1].Success)
+                // 标识匹配组，
+                else if (item.Groups[6].Success)
                 {
                     type = TokenType.ID;
-                    tokenValue = item.Groups[1].Value;
+                    tokenValue = item.Groups[6].Value;
                 }
                 else
                 {
+                    // 其它标识符，例如 < > 等等
                     type = TokenType.ID;
-                    tokenValue = item.Value;
+                    tokenValue = item.Groups[1].Value;
                 }
                 AddToken(lineNo, type, tokenValue);
 

@@ -38,6 +38,14 @@ namespace project_test
             Assert.True( matches[0].Groups[4].Success);
         }
         [Fact]
+        public void other_token_test()
+        {
+            var target = "  +   ";
+            var matches = regex.Matches(target);
+            Assert.True( matches[0].Groups[1].Success);
+            Assert.Equal( 1, matches[0].Groups[1].Value.Length );
+        }
+        [Fact]
         public void statement_test()
         {
             var target = "sum=100";

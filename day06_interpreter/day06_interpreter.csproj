@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\day05_parser\day05_parser.csproj" />
+        <ProjectReference Include="..\day17_parser\day17_parser.csproj" />
+    </ItemGroup>
+</Project>

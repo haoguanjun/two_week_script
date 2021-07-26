@@ -16,6 +16,7 @@ namespace week2.element.token
                 : new HashSet<string>();
         }
 
+        // 是标识，但是不是保留字：} ; 和换行
         public override bool Test(Token token)
         {
             return token.IsIdentifier && !_reserved.Contains(token.Text);

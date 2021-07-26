@@ -20,6 +20,7 @@ namespace week2.element
         public override void Parse(ILexer lexer, IList<ASTree> res )
         {
             Token token = lexer.Read();
+           
             if( token.IsIdentifier)
             {
                 foreach(string tokenText in _tokens)

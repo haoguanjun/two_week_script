@@ -17,7 +17,7 @@ namespace week2
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
 
-            builder.AppendLine("sum=0");
+            builder.AppendLine("sum=99");
             builder.AppendLine("sum");
 
             var stringReader = new StringReader(builder.ToString());

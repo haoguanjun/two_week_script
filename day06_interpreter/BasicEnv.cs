@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace week2
 {
-    public class BasicEnv: IEnvironment
+    public class BasicEnv : IEnvironment
     {
         private System.Collections.Generic.Dictionary<string, object> _values;
 
@@ -14,7 +14,8 @@ namespace week2
 
         public void Add(string name, object value)
         {
-            _values.Add( name, value);
+            // if the name existed, just override it.
+            _values[name] = value;
         }
         public object Get(string name)
         {

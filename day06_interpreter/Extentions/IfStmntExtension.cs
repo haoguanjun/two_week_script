@@ -9,8 +9,7 @@ namespace week2
         {
             object condition = ifStmnt.Condition.Eval(env);
             if( condition is int && 
-                (int) condition != 1 &&
-                (int) condition != 0 )
+                ((int) condition != 0) )
             {
                 return ifStmnt.ThenBlock.Eval(env);
             }

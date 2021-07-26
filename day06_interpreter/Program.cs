@@ -17,8 +17,19 @@ namespace week2
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
 
-            builder.AppendLine("sum=99");
-            builder.AppendLine("sum");
+            builder.AppendLine("even=0");
+            builder.AppendLine("odd=0");
+            builder.AppendLine("i=1");
+
+            builder.AppendLine("while i < 20 {");
+            builder.AppendLine("   if i % 2 == 0 {");
+            builder.AppendLine("      even = even + 1");
+            builder.AppendLine("   } else {");
+            builder.AppendLine("      odd = odd + 1");
+            builder.AppendLine("   }");
+            builder.AppendLine("   i = i + 1");
+            builder.AppendLine("}");
+            builder.AppendLine(" even + odd");
 
             var stringReader = new StringReader(builder.ToString());
             var input = new LineNumberReader(stringReader);

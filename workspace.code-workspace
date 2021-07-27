@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "day05_parser_test"
+		},
+		{
+			"path": "day07_function"
 		}
 	],
 	"settings": {}

@@ -1,33 +1,41 @@
+using System;
+using System.Collections.Generic;
 
-
-public class DefStmnt: ASTList
+namespace week2
 {
-    public DefStmnt( IList<ASTree> list): base( list ) { }
-    public string Name {
-        get {
-            ASTLeaf leaf = Child(0) as ASTLeaf;
-            Token token = leaf.Token;
-            return token.Text;
-        }
-    }
-
-    public ParameterList Parameters
+    public class DefStmnt : ASTList
     {
-        get {
-            return Child(1) as ParameterList;
+        public DefStmnt(IList<ASTree> list) : base(list) { }
+        public string Name
+        {
+            get
+            {
+                ASTLeaf leaf = Child(0) as ASTLeaf;
+                Token token = leaf.Token();
+                return token.Text;
+            }
         }
-    }
 
-    public BlockStmnt Body
-    {
-        get {
-            BlockStmnt block = Child(2);
-            return block;
+        public ParameterList Parameters
+        {
+            get
+            {
+                return Child(1) as ParameterList;
+            }
         }
-    }
 
-    public override string ToString()
-    {
-        return $"( def {Name}  {Parameters} {Body}";
+        public BlockStmnt Body
+        {
+            get
+            {
+                BlockStmnt block = Child(2) as BlockStmnt;
+                return block;
+            }
+        }
+
+        public override string ToString()
+        {
+            return $"( def {Name}  {Parameters} {Body}";
+        }
     }
 }

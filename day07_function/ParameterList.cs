@@ -1,4 +1,5 @@
-
+using System;
+using System.Collections.Generic;
 
 namespace week2
 {
@@ -15,7 +16,7 @@ namespace week2
 
         public int Size()
         {
-            return numChildren;
+            return Count;
         }
     }
 }

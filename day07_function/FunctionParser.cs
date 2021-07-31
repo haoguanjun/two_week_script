@@ -74,7 +74,7 @@ namespace week2
                                     .Option(statement0)
                                 )
                                 .Sep("}");
-
+            // 简单语句
             Parser simple = Parser.Rule(typeof(PrimaryExpr))
                                 .Ast(expr);
 
@@ -105,6 +105,8 @@ namespace week2
                     .Ast(param).Repeat(
                         Parser.Rule().Sep(",").Ast(param)
                     );
+            
+            // 参数定义语法
             Parser paramList = Parser.Rule()
                         .Sep("(")
                         .Maybe( @params)
@@ -115,30 +117,36 @@ namespace week2
                         .Identifier(reserved)
                         .Ast(paramList)
                         .Ast(block);
+
+            // 实际参数语法
             Parser args = Parser.Rule(typeof(Arguments))
                         .Ast(expr)
                         .Repeat(
                             Parser.Rule().Sep(",").Ast(expr)
                         );
+            // 实际参数可能在括号内
             Parser postfix = Parser.Rule()
                         .Sep("(")
                         .Maybe(args)
                         .Sep(")");
 
             primary.Repeat(postfix);
+
+            // 基本语句增加了支持括号带参数
             simple.Option(args);
 
             // 程序
+            // 注意定义函数的定义，需要放在最前面
             program = Parser.Rule()
                                 .Or(
-                                    statement,
                                     def,
+                                    statement,
                                     Parser.Rule(typeof(NullStmnt))
                                         .Sep(";", Token.EOL)
                                 );
         }
 
-        public ASTree Parse(Lexer lexer)
+        public ASTree Parse(ILexer lexer)
         {
             return program.Parse(lexer);
         }

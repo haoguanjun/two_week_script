@@ -36,6 +36,8 @@ namespace week2
                 case WhileStmnt whileType:
                     result = whileType.Eval(env);
                     break;
+
+                // 不是特殊语句的处理
                 case ASTList listType:
                     result = listType.Eval(env);
                     break;

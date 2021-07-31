@@ -4,19 +4,28 @@
 			"path": "day03_split_word"
 		},
 		{
-			"path": "day15_manual"
-		},
-		{
 			"path": "day03_split_word_unittest"
 		},
 		{
 			"path": "day04_node"
 		},
 		{
+			"path": "day05_parser"
+		},
+		{
+			"path": "day05_parser_test"
+		},
+		{
 			"path": "day06_interpreter"
 		},
 		{
-			"path": "day05_parser"
+			"path": "day07_function"
+		},
+		{
+			"path": "day08_native"
+		},
+		{
+			"path": "day15_manual"
 		},
 		{
 			"path": "day17_parser"
@@ -24,15 +33,6 @@
 		{
 			"path": "day17_parser_unittest"
 		},
-		{
-			"path": "day05_parser_test"
-		},
-		{
-			"path": "day07_function"
-		},
-		{
-			"path": "day08_native"
-		}
 	],
 	"settings": {}
 }

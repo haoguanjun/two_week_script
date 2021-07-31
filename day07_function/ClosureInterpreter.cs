@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace week2
 {
-    public class FunctionInterpreter
+    public class ClosureInterpreter
     {
-        public FunctionParser Parser { get; private set; }
+        public ClosureParser Parser { get; private set; }
         public IEnvironment Environment { get; private set; }
-        public FunctionInterpreter()
+        public ClosureInterpreter()
         {
-            Parser = new FunctionParser();
+            Parser = new ClosureParser();
             Environment = new NestedEnv();
         }
 
@@ -24,9 +24,12 @@ namespace week2
                 ASTree node = Parser.Parse(lexer);
                 if (!(node is NullStmnt))
                 {
-                    // 在支持函数的语法中，增加了两种新的语句：定义函数和调用函数
-                    switch( node )
+                    // 在支持闭包的语法中，增加了三种新的语句：定义闭包，定义函数和调用函数
+                    switch (node)
                     {
+                        case ClosureFunction closureType:
+                            result = closureType.Eval(Environment);
+                            break;
                         case DefStmnt defStmnType:
                             result = defStmnType.Eval(Environment);
                             break;

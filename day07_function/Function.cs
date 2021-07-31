@@ -29,7 +29,7 @@ namespace week2
         }
         public override string ToString()
         {
-            return $"<function=> name: {Name}, HashCode: {this.GetHashCode()} >";
+            return $"<def function=> name: {Name}, HashCode: {this.GetHashCode()} >";
         }
     }
 }

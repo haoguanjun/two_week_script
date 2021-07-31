@@ -29,6 +29,9 @@
 		},
 		{
 			"path": "day07_function"
+		},
+		{
+			"path": "day08_native"
 		}
 	],
 	"settings": {}

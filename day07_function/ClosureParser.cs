@@ -136,7 +136,7 @@ namespace week2
             simple.Option(args);
 
             // 在支持闭包的情况下，简单语句现在有了两种情况
-            simple.InsertChoice(
+            primary.InsertChoice(
                 Parser.Rule(typeof(ClosureFunction))
                     .Sep("function")
                     .Ast(paramList)

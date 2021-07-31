@@ -135,7 +135,8 @@ namespace week2
             // 基本语句增加了支持括号带参数
             simple.Option(args);
 
-            // 在支持闭包的情况下，简单语句现在有了两种情况
+            // 在支持闭包的情况下，表达式现在多了一种情况
+            // 现在变成了 5 种
             primary.InsertChoice(
                 Parser.Rule(typeof(ClosureFunction))
                     .Sep("function")

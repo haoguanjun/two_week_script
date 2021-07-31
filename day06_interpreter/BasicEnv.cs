@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace week2
@@ -20,6 +20,19 @@ namespace week2
         public object Get(string name)
         {
             return _values[name];
+        }
+
+        public IEnvironment Where(string name)
+        {
+            // 这里是 Outer，即最外部的公共执行环境
+            if( _values.ContainsKey( name))
+            {
+                return this;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

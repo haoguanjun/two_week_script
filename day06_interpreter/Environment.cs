@@ -6,5 +6,6 @@ namespace week2
     {
         void Add(string name, object value);
         object Get(string name);
+        IEnvironment Where(string name);
     }
 }

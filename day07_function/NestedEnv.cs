@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+/*
+ * 内嵌的执行环境
+ *   提供指向外部公共执行环境的引用 Outer
+ */
 namespace week2
 {
     public class NestedEnv : IEnvironment

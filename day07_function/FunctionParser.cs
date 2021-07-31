@@ -103,7 +103,7 @@ namespace week2
             // params is a key word, use @ to avoid it
             Parser @params = Parser.Rule(typeof(ParameterList))
                     .Ast(param).Repeat(
-                        Parser.Rule().Seg(",").Ast(param)
+                        Parser.Rule().Sep(",").Ast(param)
                     );
             Parser paramList = Parser.Rule()
                         .Sep("(")
@@ -115,7 +115,7 @@ namespace week2
                         .Identifier(reserved)
                         .Ast(paramList)
                         .Ast(block);
-            Farser args = Parser.Rule(typeof(Arguments))
+            Parser args = Parser.Rule(typeof(Arguments))
                         .Ast(expr)
                         .Repeat(
                             Parser.Rule().Sep(",").Ast(expr)
@@ -125,7 +125,7 @@ namespace week2
                         .Maybe(args)
                         .Sep(")");
 
-            parmary.Repeat(postfix);
+            primary.Repeat(postfix);
             simple.Option(args);
 
             // 程序

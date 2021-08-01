@@ -53,6 +53,8 @@ namespace week2
             {
                 // 计算实际参数的值
                 ASTree node = arguments.Child(index);
+
+                // todo: 这里是一个缺点，不能使用动态来针对不同类型的节点进行自动处理
                 object nodeValue = node.Eval(env);
 
                 // 如果是变量的话，需要对变量求值

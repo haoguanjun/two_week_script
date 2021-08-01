@@ -8,6 +8,7 @@ namespace week2
 {
     public static class ArgumentsWithNativeExtensions
     {
+        // 普通处理
         public static Object BasicEval(this Arguments arguments, IEnvironment calledEnv, Object value)
         {
             if (!(value is Function))
@@ -38,20 +39,27 @@ namespace week2
             return result;
         }
 
+        // 原生处理
         public static Object EvalWithNative(this Arguments arguments, IEnvironment env, NativeFunction nativeFunction)
         {
             int parametersCount = nativeFunction.ParametersCount;
-            if(arguments.Count != parametersCount)
+            if (arguments.Count != parametersCount)
             {
                 throw new StoneException($"Bad number of native function.");
             }
             Object[] args = new object[parametersCount];
             // 对每个参数进行求值
-            for(int index =0; index < parametersCount; index++)
+            for (int index = 0; index < parametersCount; index++)
             {
-                    // 计算实际参数的值
-                    ASTree node = arguments.Child(index);
+                // 计算实际参数的值
+                ASTree node = arguments.Child(index);
                 object nodeValue = node.Eval(env);
+
+                // 如果是变量的话，需要对变量求值
+                if( node is IdToken)
+                {
+                    nodeValue = env.Get(nodeValue as string);
+                }
                 args[index] = nodeValue;
             }
 

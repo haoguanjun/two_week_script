@@ -8,14 +8,13 @@ namespace week2
     {
         public static void Main(String[] args)
         {
+            // ClosureRunner closureRunner = new ClosureRunner();
+            // closureRunner.Run();
             
-            ClosureRunner closureRunner = new ClosureRunner();
-            closureRunner.Run();
             
-            /*
             FunctionRunner functionRunner = new FunctionRunner();
             functionRunner.Run();
-            */
+            
         }
 
     }

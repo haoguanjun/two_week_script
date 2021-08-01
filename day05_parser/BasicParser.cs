@@ -102,7 +102,7 @@ namespace week2
                                 );
         }
 
-        public ASTree Parse(Lexer lexer)
+        public ASTree Parse(ILexer lexer)
         {
             return program.Parse(lexer);
         }

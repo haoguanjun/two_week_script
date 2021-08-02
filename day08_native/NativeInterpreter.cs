@@ -26,107 +26,10 @@ namespace week2
                 ASTree node = Parser.Parse(lexer);
                 if (!(node is NullStmnt))
                 {
-                    // 在支持闭包的语法中，增加了三种新的语句：定义闭包，定义函数和调用函数
-                    // 定义闭包是在赋值语句中实现的
-                    switch (node)
-                    {
-                        case BinaryExpress binaryExprType:
-                            result = ProcessBinaryExpress(binaryExprType, Environment);
-                            break;
-                        case DefStmnt defStmnType:
-                            result = defStmnType.Eval(Environment);
-                            break;
-
-                        case PrimaryExpr primaryExprType:
-                            // 
-                            result = ProcessPrimaryExpression(primaryExprType, Environment);
-                            // result = primaryExprType.Eval(Environment);
-                            break;
-
-                        default:
-                            result = node.Eval(Environment);
-                            break;
-                    }
-
+                    result = node.Eval(Environment);
                     Console.WriteLine($"=> {result}");
                 }
             }
-
-            return result;
-        }
-
-        public Object ProcessBinaryExpress(BinaryExpress binaryExpr, IEnvironment env)
-        {
-            Object result = null;
-
-            // 闭包赋值处理
-            // 预处理递归处理闭包定义问题
-            //   存在 4 种情况
-            //     1. 闭包定义语句
-            //     2. 代码块
-            //     3. if 语句
-            //     4. while 语句
-            //   对于后 3 种情况，可以继续处理 switch
-            //   对于第 1 种情况，不用继续处理
-            if (binaryExpr.Right is ClosureFunction &&
-                binaryExpr.Operator == "=")
-            {
-                ClosureFunction c = binaryExpr.Right as ClosureFunction;
-                Function func = c.Eval(Environment) as Function;
-                string closureName = (binaryExpr.Left as Name).NameString();
-                env.Add(closureName, func);
-                result = func;
-            }
-            // 调用函数，然后赋值
-            else if( binaryExpr.Right is PrimaryExpr &&
-                binaryExpr.Right.Count == 2 &&
-                binaryExpr.Right.Child(1) is Arguments
-                )
-            {
-                PrimaryExpr c = binaryExpr.Right as PrimaryExpr;
-                string name = (binaryExpr.Left as Name).NameString();
-                Object result2 = ProcessPrimaryExpression(c,env);
-                env.Add(name, result2);
-                return result2;
-            }
-            else
-            {
-                // 继续原来的默认处理
-                result = binaryExpr.Eval(env);
-            }
-            return result;
-        }
-
-        public Object ProcessPrimaryExpression(PrimaryExpr expr, IEnvironment env)
-        {
-            Object result = null;
-
-            // 对于函数调用处理扩展了可以调用原生函数
-            if (expr.Child(0) is Name &&
-                expr.Child(1) is Arguments)
-            {
-                Name nameNode = expr.Child(0) as Name;
-                string methodName = nameNode.NameString();
-                Object func = env.Get(methodName);
-                Arguments args = expr.Child(1) as Arguments;
-
-                switch (func)
-                {
-                    // 原生函数
-                    case NativeFunction nativeFunc:
-                        result = args.EvalWithNative(env, nativeFunc);
-                        break;
-                    // 普通函数
-                    case Function basicFunc:
-                        result = args.BasicEval(env, basicFunc);
-                        break;
-                }
-            }
-            else
-            {
-                result = expr.Eval(env);
-            }
-
             return result;
         }
     }

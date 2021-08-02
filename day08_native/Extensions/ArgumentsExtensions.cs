@@ -16,7 +16,6 @@ namespace week2
             }
             else if (value is NativeFunction nativeFunc)
             {
-
                 return ProcessNativeFunction(nativeFunc, arguments, calledEnv);
             }
             else

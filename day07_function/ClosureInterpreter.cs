@@ -20,26 +20,7 @@ namespace week2
                 ASTree node = Parser.Parse(lexer);
                 if (!(node is NullStmnt))
                 {
-                    // 在支持闭包的语法中，增加了三种新的语句：定义闭包，定义函数和调用函数
-                    // 定义闭包是在赋值语句中实现的
-                    switch (node)
-                    {
-                        case BinaryExpress binaryExprType:
-                            result = ProcessBinaryExpress(binaryExprType, Environment);
-                            break;
-                        case DefStmnt defStmnType:
-                            result = defStmnType.Eval(Environment);
-                            break;
-
-                        case PrimaryExpr primaryExprType:
-                            result = primaryExprType.Eval(Environment);
-                            break;
-
-                        default:
-                            result = node.Eval(Environment);
-                            break;
-                    }
-
+                    result = node.Eval(Environment);
                     Console.WriteLine($"=> {result}");
                 }
             }

@@ -25,6 +25,9 @@ namespace week2
             }
         }
 
+        /*
+         * 数组也可能出现在赋值的左边
+         */
         public static object ComputeAssign(week2.BinaryExpress node, IEnvironment env, object rValue)
         {
             ASTree left = node.Left;

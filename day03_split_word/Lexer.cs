@@ -19,7 +19,7 @@ namespace week2
          * 
          * \\s*                                 0 到多个空白
          * ((//.*)                              注释
-         * ([0-9]+))                            一组数字
+         * ([0-9]+))                            一组数字，第 3 组
          * \\\\\"                               \"
          * \\\\\\\\                             \\
          * \\\\\n                               \n
@@ -160,6 +160,12 @@ namespace week2
         //
         protected void AddToken(int lineNo, TokenType type, string match)
         {
+            // 忽略掉空内容
+            if( String.IsNullOrWhiteSpace(match))
+            {
+                return;
+            }
+
             Token token = null;
             if (type == TokenType.Number)
             {

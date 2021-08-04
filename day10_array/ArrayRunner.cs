@@ -18,10 +18,10 @@ namespace week2
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
 
-            builder.AppendLine("a = [ 2, 3, 4 ]");
-            builder.AppendLine("Print a[1]");
+            builder.AppendLine("a = [ 2, 3, 4 ] ");
+            builder.AppendLine("Print a[1] ");
             builder.AppendLine("a[1] = 9");
-            builder.AppendLine("Print  a[1]");
+            builder.AppendLine("Print  a[1] ");
             builder.AppendLine("b = [[3, 1], [4, 2]]");
             builder.AppendLine("Print b[1][0] + \": \" + b[1][1]");
 

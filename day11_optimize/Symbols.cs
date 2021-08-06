@@ -72,7 +72,7 @@ namespace week2
             }
             else
             {
-                return i;
+                return i.Value;
             }
         }
 

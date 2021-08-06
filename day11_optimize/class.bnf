@@ -1,0 +1,5 @@
+﻿member:		def | simple
+class_body:	"{" [member] {(";" | EOL) [member]} "}"
+defclass:	"class" IDENTIFIER [ "extends" IDENTIFIER ] class_body
+postfix:	"." IDENTIFIER | "(" args ")"
+program:	[ defclass | def | statement ] ( ";" | EOL )

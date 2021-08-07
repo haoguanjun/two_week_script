@@ -8,7 +8,7 @@ namespace week2 {
     /*
      * 基于数组的执行环境
      */
-    public class ArrayEnvironment : IEnvironment {
+    public class ArrayEnvironment : IOptimizeEnvironment {
         // 用来保存局部变量的数组
         private Object[] values;
         // 外层作用域

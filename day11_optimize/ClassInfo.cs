@@ -13,7 +13,7 @@ namespace week2
         {
             get; private set;
         }
-        public IEnvironment Environment
+        public IOptimizeEnvironment Environment
         {
             get; private set;
         }
@@ -30,7 +30,7 @@ namespace week2
             get { return Definition.Body; }
         }
 
-        public ClassInfo(ClassStmnt stmnt, IEnvironment env)
+        public ClassInfo(ClassStmnt stmnt, IOptimizeEnvironment env)
         {
             Definition = stmnt;
             Environment = env;

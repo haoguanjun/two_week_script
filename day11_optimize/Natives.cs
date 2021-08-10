@@ -4,14 +4,14 @@ namespace week2
 {
     public class Natives
     {
-        public IEnvironment SetEnvironment( IEnvironment env)
+        public IOptimizeEnvironment SetEnvironment( IOptimizeEnvironment env)
         {
             AppendNatives(env);
             return env;
         }
 
         // 在环境中添加原生方法支持
-        public void AppendNatives(IEnvironment env)
+        public void AppendNatives(IOptimizeEnvironment env)
         {
             Append(env, "Print", typeof(Natives), typeof(Object));
             Append(env, "Read", typeof(Natives));
@@ -20,7 +20,7 @@ namespace week2
             Append(env, "Now", typeof(Natives));
         }
 
-        public void Append(IEnvironment env, string methodName, Type target, params Type[] parameters)
+        public void Append(IOptimizeEnvironment env, string methodName, Type target, params Type[] parameters)
         {
             System.Reflection.MethodInfo methodInfo = null;
             try

@@ -8,7 +8,7 @@ namespace week2
     {
         public static readonly int TRUE = 1;
         public static readonly int FALSE = 0;
-        public static object Eval(this week2.BinaryExpress node, IEnvironment env)
+        public static object Eval(this week2.BinaryExpress node, IOptimizeEnvironment env)
         {
             string op = node.Operator;
             if (op == "=")
@@ -28,7 +28,7 @@ namespace week2
         /*
          * 数组也可能出现在赋值的左边
          */
-        public static object ComputeAssign(week2.BinaryExpress node, IEnvironment env, object rValue)
+        public static object ComputeAssign(week2.BinaryExpress node, IOptimizeEnvironment env, object rValue)
         {
             ASTree left = node.Left;
             if( left is PrimaryExpr)

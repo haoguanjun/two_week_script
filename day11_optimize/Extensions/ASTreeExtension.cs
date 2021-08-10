@@ -6,7 +6,11 @@ namespace week2
 {
     public static class ASTreeExtension
     {
-        public static object Eval(this week2.ASTree node, IEnvironment env)
+        public static void PreProcess(this week2.ASTree node, Symbols syms)
+        {
+        }
+
+        public static object Eval(this week2.ASTree node, IOptimizeEnvironment env)
         {
             object result = null;
             // 使用类型模式匹配

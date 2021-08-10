@@ -47,12 +47,12 @@ namespace week2 {
         // 根据变量名称，找到变量所对应保存位置
         // 从当前执行环境开始找
         public Location Get (string key) {
-            return Get (key, 0);
+            return Get(key, 0);
         }
 
         // 根据变量名称，找到变量所对应的保存位置
         // 起始层级预先指定
-        public Location Get (string key, int nest) {
+        public Location Get(string key, int nest) {
 
             // 首先看当前执行环境中是否存在此变量
             if (Table.ContainsKey (key)) {
@@ -64,7 +64,6 @@ namespace week2 {
                 } else {
                     return Outer.Get (key, nest + 1);
                 }
-
             }
         }
 

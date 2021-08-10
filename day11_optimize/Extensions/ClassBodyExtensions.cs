@@ -9,7 +9,7 @@ namespace week2
 {
     public static class ClassBodyExtensions
     {
-        public static Object Eval(this ClassBody body, IEnvironment env)
+        public static Object Eval(this ClassBody body, IOptimizeEnvironment env)
         {
             foreach(ASTree node in body)
             {

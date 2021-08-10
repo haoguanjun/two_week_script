@@ -8,7 +8,7 @@ namespace week2
 {
     public static class ArgumentsExtensions
     {
-        public static Object Eval(this Arguments arguments, IEnvironment calledEnv, Object value)
+        public static Object Eval(this Arguments arguments, IOptimizeEnvironment calledEnv, Object value)
         {
             if (value is Function func)
             {
@@ -25,7 +25,7 @@ namespace week2
         }
 
         // 普通函数
-        public static Object ProcessFunction(Function function, Arguments arguments, IEnvironment env)
+        public static Object ProcessFunction(Function function, Arguments arguments, IOptimizeEnvironment env)
         {
             ParameterList parameters = function.Parameter;
             if (arguments.Size != parameters.Size())
@@ -33,7 +33,7 @@ namespace week2
                 throw new StoneException($"Bad number of function parameters. define: {arguments}, value: {parameters}");
             }
 
-            IEnvironment newEnv = function.MakeEnv();
+            IOptimizeEnvironment newEnv = function.MakeEnv();
             int num = 0;
 
             // 对每个参数进行求值
@@ -50,7 +50,7 @@ namespace week2
         }
 
         // 原生函数
-        public static Object ProcessNativeFunction(NativeFunction nativeFunction, Arguments arguments, IEnvironment env)
+        public static Object ProcessNativeFunction(NativeFunction nativeFunction, Arguments arguments, IOptimizeEnvironment env)
         {
             int parametersCount = nativeFunction.ParametersCount;
             if (arguments.Count != parametersCount)

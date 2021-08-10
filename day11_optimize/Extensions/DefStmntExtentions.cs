@@ -12,7 +12,7 @@ namespace week2
 {
     public static class DefStmntExtentions
     {
-        public static object Eval(this week2.DefStmnt def, IEnvironment env)
+        public static object Eval(this week2.DefStmnt def, IOptimizeEnvironment env)
         {
             Function function = new Function(
                 def.Name,

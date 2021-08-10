@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace week2
 {
-    public class ArrayInterpreter
+    public class EnvOptInterpreter
     {
         public ArrayParser Parser { get; private set; }
-        public IEnvironment Environment { get; private set; }
-        public ArrayInterpreter()
+        public IOptimizeEnvironment Environment { get; private set; }
+        public EnvOptInterpreter()
         {
             Parser = new ArrayParser();
+            // 原生函数支持
             Natives natives = new Natives();
-            NestedEnv env = new NestedEnv();
+            ResizableArrayEnvironment env = new ResizableArrayEnvironment();
             Environment = natives.SetEnvironment(env);
         }
 
@@ -26,6 +27,9 @@ namespace week2
                 ASTree node = Parser.Parse(lexer);
                 if (!(node is NullStmnt))
                 {
+                    // 对符号进行预处理
+                    node.PreProcess(Environment.Symbols);
+
                     result = node.Eval(Environment);
                     Console.WriteLine($"=> {result}");
                 }

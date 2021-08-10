@@ -5,7 +5,7 @@ namespace week2
 {
     public static class NameExtension
     {
-        public static object Eval(this Name token, IEnvironment env)
+        public static object Eval(this Name token, IOptimizeEnvironment env)
         {
             string name = token.NameString();
             object value = env.Get(name);

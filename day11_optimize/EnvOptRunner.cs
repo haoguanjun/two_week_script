@@ -3,11 +3,11 @@ using System.IO;
 
 namespace week2
 {
-    public class ArrayRunner
+    public class EnvOptRunner
     {
         public void Run()
         {
-            var interpreter = new ArrayInterpreter();
+            var interpreter = new EnvOptInterpreter();
             var lexer = MakeLexer();
             var result = interpreter.Run(lexer);
 

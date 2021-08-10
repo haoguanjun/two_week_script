@@ -10,7 +10,7 @@ namespace week2
     {
         public static void Main(String[] args)
         {
-            ArrayRunner classRunner = new ArrayRunner();
+            EnvOptRunner classRunner = new EnvOptRunner();
             classRunner.Run();
         }
     }

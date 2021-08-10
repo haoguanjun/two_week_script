@@ -8,7 +8,7 @@ namespace week2
 {
     public static class ParameterListExtension
     {
-        public static void Eval(this ParameterList parameters, IEnvironment env, int index, object value)
+        public static void Eval(this ParameterList parameters, IOptimizeEnvironment env, int index, object value)
         {
             string name = parameters.Name(index);
             env.Add(name, value);

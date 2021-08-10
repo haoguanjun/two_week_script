@@ -8,7 +8,7 @@ namespace week2
 {
     public static class ClosureFunctionExtensions
     {
-        public static Object Eval(this ClosureFunction closure, IEnvironment environment)
+        public static Object Eval(this ClosureFunction closure, IOptimizeEnvironment environment)
         {
             Function func = new Function(
                 String.Empty,

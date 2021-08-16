@@ -14,6 +14,11 @@ namespace week2
         public abstract IEnumerator<ASTree> Children();
         public abstract string Location();
 
+        public virtual void PreProcess(Symbols symbols)
+        {
+            // in default, it do nothing
+        }
+
         public IEnumerator<ASTree> GetEnumerator()
         {
             return Children();

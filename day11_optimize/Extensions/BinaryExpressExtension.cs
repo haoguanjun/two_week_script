@@ -8,6 +8,29 @@ namespace week2
     {
         public static readonly int TRUE = 1;
         public static readonly int FALSE = 0;
+
+        public static void PreProcess(this BinaryExpress node, Symbols symbols)
+        {
+            // 如果是变量赋值语句，按照变量处理
+            ASTree left = node.Left;
+            ASTree right = node.Right;
+            if( "=" == node.Operator)
+            {
+                if( left is Name forAssign)
+                {
+                    forAssign.PrePreocessForAssign(symbols);
+                    right.PreProcess(symbols);
+                }
+            }
+            else
+            {
+                left.PreProcess(symbols);
+                right.PreProcess(symbols);
+            }
+
+
+        }
+
         public static object Eval(this week2.BinaryExpress node, IOptimizeEnvironment env)
         {
             string op = node.Operator;
@@ -60,11 +83,17 @@ namespace week2
                     }
                 }
             }
-            if (left is week2.Name)
+            if (left is week2.Name assignFor)
             {
+                // 赋值处理发生了变化
+                assignFor.EvalForAssign(env, rValue);
+                return rValue;
+
+                /*
                 week2.Name token = left as week2.Name;
                 env.Add(token.NameString(), rValue);
                 return rValue;
+                */
             }
             else
             {

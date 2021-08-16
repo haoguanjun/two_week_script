@@ -8,6 +8,7 @@ namespace week2
     {
         public static void PreProcess(this week2.ASTree node, Symbols syms)
         {
+            // in default, it do nothing
         }
 
         public static object Eval(this week2.ASTree node, IOptimizeEnvironment env)

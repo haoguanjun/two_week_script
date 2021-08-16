@@ -22,7 +22,7 @@ namespace week2
         }
 
         // 创建函数的执行环境
-        public IOptimizeEnvironment MakeEnv()
+        public virtual IOptimizeEnvironment MakeEnv()
         {
             IOptimizeEnvironment innerEnv = new ArrayEnvironment(10, Environment);
             return innerEnv;

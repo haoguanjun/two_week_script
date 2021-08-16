@@ -6,7 +6,14 @@ namespace week2
      */
     public class Name: ASTLeaf
     {
-        public Name(Token token): base( token) {}
+        public static readonly int UNKNOWN = -1;
+        public int Index { get; set; }
+        public int Nest { get; set; }
+        
+        public Name(Token token): base( token) 
+        {
+            Index = UNKNOWN;
+        }
         public string NameString() {
             return Token().Text;
         }

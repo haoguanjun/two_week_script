@@ -8,7 +8,27 @@ namespace week2
     {
         public static void PreProcess(this week2.ASTree node, Symbols syms)
         {
-            // in default, it do nothing
+            switch (node)
+            {
+                case DefStmnt defStmnt:
+                    defStmnt.PreProcess(syms);
+                    break;
+                case ClosureFunction closure:
+                    closure.PreProcess(syms);
+                    break;
+                case ParameterList parameterList:
+                    parameterList.PreProcess(syms);
+                    break;
+                case Name name:
+                    name.PrePrecess(syms);
+                    break;
+                case BinaryExpress binaryExpress:
+                    binaryExpress.PreProcess(syms);
+                    break;
+                case ASTList listType:
+                    listType.PreProcess(syms);
+                    break;
+            }
         }
 
         public static object Eval(this week2.ASTree node, IOptimizeEnvironment env)

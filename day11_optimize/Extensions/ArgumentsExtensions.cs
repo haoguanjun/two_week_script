@@ -10,7 +10,7 @@ namespace week2
     {
         public static Object Eval(this Arguments arguments, IOptimizeEnvironment calledEnv, Object value)
         {
-            if (value is Function func)
+            if (value is OptFunction func)
             {
                 return ProcessFunction(func, arguments, calledEnv);
             }

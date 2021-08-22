@@ -10,8 +10,8 @@ namespace week2
     {
         public static void Main(String[] args)
         {
-            EnvOptRunner runner = new EnvOptRunner();
-            runner.Run();
+            OptimizeObjectRunner classRunner = new OptimizeObjectRunner();
+            classRunner.Run();
         }
     }
 }

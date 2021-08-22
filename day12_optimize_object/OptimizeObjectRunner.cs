@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace week2
 {
-    class Program
+    public class OptimizeObjectRunner
     {
-        public static void Main(String[] args)
+        public void Run()
         {
-            EnvOptRunner runner = new EnvOptRunner();
-            runner.Run();
+
         }
     }
 }

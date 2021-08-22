@@ -5,7 +5,7 @@ namespace week2
 {
     public static class WhileStmntExtension
     {
-        public static object Eval(this WhileStmnt whileStmnt, IEnvironment env)
+        public static object Eval(this WhileStmnt whileStmnt, IOptimizeEnvironment env)
         {
             object result = 0;
             for(;;)

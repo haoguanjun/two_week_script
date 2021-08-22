@@ -13,7 +13,7 @@ namespace week2
 {
     public static class ArrayLiteralExtensions
     {
-        public static Object Eval(this ArrayLiteral arrayLiteral, IEnvironment env)
+        public static Object Eval(this ArrayLiteral arrayLiteral, IOptimizeEnvironment env)
         {
             int count = arrayLiteral.Count;
             Object[] result = new Object[count];

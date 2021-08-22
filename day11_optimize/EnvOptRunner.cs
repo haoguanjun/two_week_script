@@ -3,11 +3,11 @@ using System.IO;
 
 namespace week2
 {
-    public class ArrayRunner
+    public class EnvOptRunner
     {
         public void Run()
         {
-            var interpreter = new ArrayInterpreter();
+            var interpreter = new EnvOptInterpreter();
             var lexer = MakeLexer();
             var result = interpreter.Run(lexer);
 
@@ -18,13 +18,15 @@ namespace week2
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
 
-            builder.AppendLine("a = [ 2, 3, 4 ] ");
-            builder.AppendLine("Print a[1] ");
-            builder.AppendLine("a[1] = 9");
-            builder.AppendLine("Print  a[1] ");
-            builder.AppendLine("b = [[3, 1], [4, 2]]");
-            builder.AppendLine("Print b[1][0] + \": \" + b[1][1]");
-
+            builder.AppendLine("def fib(n) {");
+            builder.AppendLine("   if n < 2 {");
+            builder.AppendLine("      n");
+            builder.AppendLine("   } else { ");
+            builder.AppendLine("      fib(n-1) + fib(n-2)");
+            builder.AppendLine("   }");
+            builder.AppendLine("}");
+            builder.AppendLine("fib(15)");
+            
             var stringReader = new StringReader(builder.ToString());
             var input = new LineNumberReader(stringReader);
 

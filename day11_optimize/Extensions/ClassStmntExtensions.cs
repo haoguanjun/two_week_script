@@ -9,7 +9,7 @@ namespace week2
 {
     public static class ClassStmntExtensions
     {
-        public static Object Eval(this ClassStmnt stmnt, IEnvironment env)
+        public static Object Eval(this ClassStmnt stmnt, IOptimizeEnvironment env)
         {
             ClassInfo info = new ClassInfo(stmnt, env);
             string name = stmnt.Name;

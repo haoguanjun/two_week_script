@@ -5,6 +5,8 @@ namespace week2
 {
     public class DefStmnt : ASTList
     {
+        public int Index { get; set; }
+        public int Size { get; set; }
         public DefStmnt(IList<ASTree> list) : base(list) { }
         public string Name
         {

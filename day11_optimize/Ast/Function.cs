@@ -11,9 +11,9 @@ namespace week2
         public string Name { get; private set; }
         public ParameterList Parameter { get; private set; }
         public BlockStmnt Body { get; private set; }
-        protected IEnvironment Environment { get; private set; }
+        protected IOptimizeEnvironment Environment { get; private set; }
 
-        public Function(string name, ParameterList parameter, BlockStmnt body, IEnvironment env)
+        public Function(string name, ParameterList parameter, BlockStmnt body, IOptimizeEnvironment env)
         {
             Name = name;
             Parameter = parameter;
@@ -22,9 +22,9 @@ namespace week2
         }
 
         // 创建函数的执行环境
-        public IEnvironment MakeEnv()
+        public virtual IOptimizeEnvironment MakeEnv()
         {
-            IEnvironment innerEnv = new NestedEnv(Environment);
+            IOptimizeEnvironment innerEnv = new ArrayEnvironment(10, Environment);
             return innerEnv;
         }
         public override string ToString()

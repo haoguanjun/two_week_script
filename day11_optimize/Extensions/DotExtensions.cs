@@ -9,7 +9,7 @@ namespace week2
 {
     public static class DotExtensions
     {
-        public static Object Eval(this Dot dot, IEnvironment env, Object value)
+        public static Object Eval(this Dot dot, IOptimizeEnvironment env, Object value)
         {
             string member = dot.Name;
             if( value is ClassInfo )
@@ -17,7 +17,7 @@ namespace week2
                 if( member == "new")
                 {
                     ClassInfo info = value as ClassInfo;
-                    NestedEnv e = new NestedEnv(info.Environment);
+                    ResizableArrayEnvironment e = new ResizableArrayEnvironment(info.Environment);
                     StoneObject obj = new StoneObject(e);
                     e.Add("this", obj);
                     InitObj(info, e);
@@ -40,7 +40,7 @@ namespace week2
             throw new StoneException($"bad member access: {member}");
         }
 
-        public static void InitObj(ClassInfo info, IEnvironment env)
+        public static void InitObj(ClassInfo info, IOptimizeEnvironment env)
         {
             if(info.BaseClass != null)
             {

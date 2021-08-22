@@ -11,6 +11,7 @@ namespace week2
      */
     public class ClosureFunction: ASTList
     {
+        public int Size { get; set; }
         public ClosureFunction(IList<ASTree> list) : base(list) { }
         public ParameterList Parameters {  get { return Child(0) as ParameterList; } }
         public BlockStmnt Body {  get { return Child(1) as BlockStmnt; } }

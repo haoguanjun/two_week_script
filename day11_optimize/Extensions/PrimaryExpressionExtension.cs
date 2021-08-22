@@ -9,12 +9,12 @@ namespace week2
 {
     public static class PrimaryExpressionExtension
     {
-        public static object Eval( this PrimaryExpr primary, IEnvironment environment)
+        public static object Eval( this PrimaryExpr primary, IOptimizeEnvironment environment)
         {
             return EvalSubExpression( primary, environment, 0);
         }
 
-        public static object EvalSubExpression(this PrimaryExpr primary, IEnvironment environment, int nest)
+        public static object EvalSubExpression(this PrimaryExpr primary, IOptimizeEnvironment environment, int nest)
         {
             if( HasPostfix(primary, nest))
             {

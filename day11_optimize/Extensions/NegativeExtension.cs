@@ -5,7 +5,7 @@ namespace week2
 {
     public static class NegativeExprExtension
     {
-        public static object Eval(this week2.NegativeExpr node, IEnvironment env)
+        public static object Eval(this week2.NegativeExpr node, IOptimizeEnvironment env)
         {
             object v = node.Operand.Eval( env );
             if( v is int)

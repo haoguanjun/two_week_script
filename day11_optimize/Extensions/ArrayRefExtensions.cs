@@ -15,7 +15,7 @@ namespace week2
 {
     public static class ArrayRefExtensions
     {
-        public static Object Eval(this ArrayRef arrayRef, IEnvironment env, Object value)
+        public static Object Eval(this ArrayRef arrayRef, IOptimizeEnvironment env, Object value)
         {
             if(value is Object[] array)
             {

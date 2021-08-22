@@ -4,7 +4,7 @@ namespace week2
 {
     public class Natives
     {
-        public IEnvironment SetEnvironment( IEnvironment env)
+        public IOptimizeEnvironment SetEnvironment(IOptimizeEnvironment env)
         {
             AppendNatives(env);
             return env;

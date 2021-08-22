@@ -13,7 +13,6 @@ namespace week2
         public abstract int Count { get; }
         public abstract IEnumerator<ASTree> Children();
         public abstract string Location();
-
         public IEnumerator<ASTree> GetEnumerator()
         {
             return Children();

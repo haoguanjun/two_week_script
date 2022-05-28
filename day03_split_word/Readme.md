@@ -66,6 +66,6 @@ https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pat
 
 
 ## 参考资料
-* [正则表达式30分钟入门教程](ttps://www.cnblogs.com/ljhdo/p/10678281.html)
+* [正则表达式30分钟入门教程](https://www.cnblogs.com/ljhdo/p/10678281.html)
 * [分组与捕获 - 博客园](https://deerchao.cn/tutorials/regex/regex.htm)
 

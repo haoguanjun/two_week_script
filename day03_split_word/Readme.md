@@ -33,6 +33,17 @@ https://regexper.com/
 
 如果引用命名分组，使用 (?P=name) 进行引用
 
+####
+  
+punctuation 标点符号
+  
+\\p{Punct} A punctuation character:\p{IsPunctuation}
+  
+Punctuation: One of !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+  
+https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/regex/Pattern.html
+  
+  
 ## 分析
 
 代码中使用的正则表达式使用了转义字符，取消转义之后的结果为
